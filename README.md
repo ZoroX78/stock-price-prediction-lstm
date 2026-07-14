@@ -28,11 +28,25 @@ See **`PROJECT_PLAN.md`** — a detailed, code-free build roadmap covering every
 deliverable, the directory structure, build milestones, and the methodological
 pitfalls to avoid. No implementation code is included; build it yourself as coursework.
 
-## Quick start
+## Quick start (UV)
+This project uses **UV** for dependency + environment management.
 ```bash
-python -m venv .venv && source .venv/bin/activate   # or: conda create -n stock python=3.11
-pip install -r requirements.txt
-wandb login
+# 1. Install UV (if needed)
+pip install uv
+
+# 2. Create a venv + install deps (reads pyproject.toml)
+uv venv
+uv sync                 # installs deps; `uv sync --extra dev` adds pytest
+
+# 3. Install TA-Lib's C library ONCE (required before the `TA-Lib` wheel):
+#    Windows:  conda install -c conda-forge ta-lib
+#              (or use the prebuilt wheel from Gohlke)
+#    macOS:    brew install ta-lib
+#    Linux:    apt-get install ta-lib   # or build from source
+
+# 4. Run anything inside the env:
+uv run python -m src.data.download
+uv run wandb login
 ```
 
 ## Project layout

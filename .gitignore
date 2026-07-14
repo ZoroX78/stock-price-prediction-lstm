@@ -31,3 +31,6 @@ wandb/
 # OS
 .DS_Store
 Thumbs.db
+
+# UV lockfile (commit for reproducible installs)
+!uv.lock
