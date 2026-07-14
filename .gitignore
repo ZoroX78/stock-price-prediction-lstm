@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Secrets / API keys
+.env
+*.key
+
+# Data — raw & large intermediates (re-download via scripts/download.py)
+data/raw/*
+data/processed/*
+data/splits/*
+!**/.gitkeep
+
+# Model artifacts & outputs
+outputs/*
+!**/.gitkeep
+
+# W&B
+wandb/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
