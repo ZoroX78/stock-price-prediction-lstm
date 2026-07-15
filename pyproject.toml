@@ -18,6 +18,9 @@ dependencies = [
     "tqdm",
     "PyYAML",
     "lxml>=6.1.1",
+    "pytorch-forecasting>=1.8.0",
+    "pytorch-lightning>=2.6.5",
+    "lightning>=2.6.5",
 ]
 
 [project.optional-dependencies]
