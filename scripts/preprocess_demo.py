@@ -61,7 +61,8 @@ def run_demo():
     class_pcts = cleaned_dataset["Target_Label"].value_counts(normalize=True) * 100
     print("\nLabel Class Distribution:")
     for cls, count in class_counts.items():
-        print(f"  - Class {int(cls)} ({"UP" if cls == 1 else "DOWN"}): {count} ({class_pcts[cls]:.2f}%)")
+        label = "UP" if cls == 1 else "DOWN"
+        print(f"  - Class {int(cls)} ({label}): {count} ({class_pcts[cls]:.2f}%)")
 
 
 if __name__ == "__main__":

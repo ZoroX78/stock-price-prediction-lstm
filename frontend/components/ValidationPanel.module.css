@@ -1,0 +1,237 @@
+.container {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--glow-card);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.titleArea {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 0.15rem;
+}
+
+/* Details Toggle Switch */
+.detailsToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toggleLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  transition: .3s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--text-secondary);
+  transition: .3s;
+  border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+  background-color: var(--color-blue-pill);
+  border-color: rgba(33, 150, 243, 0.4);
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(14px);
+  background-color: var(--color-green);
+  box-shadow: var(--glow-green);
+}
+
+/* Metrics Row */
+.metricsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px dashed var(--border-color);
+  padding-bottom: 1.25rem;
+}
+
+.metricItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.metricLabel {
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.metricValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+}
+
+.greenText {
+  color: var(--color-green);
+}
+
+.redText {
+  color: var(--color-red);
+}
+
+/* Collapsible Fold Details Table */
+.tableWrapper {
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  flex: 1;
+}
+
+.expanded {
+  max-height: 250px;
+  opacity: 1;
+}
+
+.collapsed {
+  max-height: 0px;
+  opacity: 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+.table th {
+  text-align: left;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.table td {
+  padding: 0.6rem 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(26, 27, 35, 0.5);
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.dateRange {
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+.rightAlign {
+  text-align: right;
+}
+
+/* Proportional correct split bar */
+.ratioSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.ratioBarContainer {
+  height: 4px;
+  display: flex;
+  border-radius: 2px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.ratioCorrect {
+  background-color: var(--color-green);
+  box-shadow: var(--glow-green);
+}
+
+.ratioIncorrect {
+  background-color: var(--color-red);
+  box-shadow: var(--glow-red);
+}
+
+.ratioLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.labelCorrect {
+  color: var(--color-green);
+}
+
+.labelIncorrect {
+  color: var(--color-red);
+}

@@ -41,9 +41,28 @@ class MultiStockDataset(Dataset):
             targets = df['Target'].values
             
             # 3. SCALE FEATURES PER TICKER
-            # Crucial: Fits the scaler specifically to this company's variance footprint
+            # For training: fit and save scaler. For val/test: load pre-fitted scaler.
+            ticker = os.path.basename(file_path).split('_')[0]
+            scaler_dir = os.path.join(processed_dir, 'scalers')
+            scaler_path = os.path.join(scaler_dir, f'{ticker}_scaler.pkl')
+            
             scaler = MinMaxScaler(feature_range=(0, 1))
-            scaled_features = scaler.fit_transform(features)
+            if split_type == 'train':
+                scaled_features = scaler.fit_transform(features)
+                # Save the training scaler for val/test consistency
+                os.makedirs(scaler_dir, exist_ok=True)
+                import joblib
+                joblib.dump(scaler, scaler_path)
+            else:
+                # Load the training scaler to prevent data leakage
+                if os.path.exists(scaler_path):
+                    import joblib
+                    scaler = joblib.load(scaler_path)
+                    scaled_features = scaler.transform(features)
+                else:
+                    # Fallback: fit on this split (with warning)
+                    print(f"⚠️ No training scaler found for {ticker}; fitting on {split_type} split.")
+                    scaled_features = scaler.fit_transform(features)
             
             # 4. SLIDE WINDOWS SECURELY (No bleeding into other stocks)
             for i in range(len(scaled_features) - sequence_length):
@@ -53,6 +72,11 @@ class MultiStockDataset(Dataset):
                 self.x_samples.append(x_window)
                 self.y_samples.append(y_target)
                 
+        if len(self.x_samples) == 0:
+            raise ValueError(f"No valid sequences found for {split_type} split. "
+                           f"Check that processed CSVs exist in '{processed_dir}' "
+                           f"and have enough rows (>{sequence_length}).")
+
         # Convert lists into single, unified PyTorch Tensors
         self.x_tensor = torch.tensor(np.array(self.x_samples), dtype=torch.float32)
         self.y_tensor = torch.tensor(np.array(self.y_samples), dtype=torch.float32)

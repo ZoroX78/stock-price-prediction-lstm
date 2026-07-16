@@ -21,6 +21,7 @@ def engineer_features(file_path):
     loss = -delta.where(delta < 0, 0.0)
     avg_gain = gain.ewm(alpha=1/14, adjust=False).mean()
     avg_loss = loss.ewm(alpha=1/14, adjust=False).mean()
+    avg_loss = avg_loss.replace(0, 1e-10)  # Avoid division by zero
     rs = avg_gain / avg_loss
     df['RSI_14'] = 100 - (100 / (1 + rs))
 

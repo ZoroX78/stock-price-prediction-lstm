@@ -39,7 +39,7 @@ class StockLSTMClassifier(nn.Module):
         
         # Pass through the linear layer and apply sigmoid activation
         out = self.fc(self.dropout(last_time_step))
-        return self.sigmoid(out).squeeze()
+        return self.sigmoid(out).squeeze(-1)
 
 # =========================================================
 # 2. THE TRAINING ENGINE

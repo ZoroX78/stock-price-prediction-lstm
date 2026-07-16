@@ -1,0 +1,364 @@
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.25rem 1.5rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--glow-card);
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+  .header {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* Ticker section */
+.tickerSection {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.identity {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.tickerSymbol {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.metaInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.companyName {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.assetType {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background-color: var(--color-gray-pill);
+  padding: 1px 4px;
+  border-radius: 3px;
+  width: fit-content;
+  margin-top: 2px;
+  text-transform: uppercase;
+}
+
+.label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+.labelCenter {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Signal Badges */
+.signalWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.signalBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+.signalIcon {
+  flex-shrink: 0;
+}
+
+.signalStrongUp {
+  color: var(--color-green);
+  background-color: var(--color-green-bg);
+  border-color: rgba(0, 230, 118, 0.2);
+  box-shadow: var(--glow-green);
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+.signalUp {
+  color: var(--color-green);
+  background-color: var(--color-green-bg);
+  border-color: rgba(0, 230, 118, 0.1);
+}
+
+.signalDown {
+  color: var(--color-red);
+  background-color: var(--color-red-bg);
+  border-color: rgba(255, 23, 68, 0.2);
+  box-shadow: var(--glow-red);
+}
+
+.signalNeutral {
+  color: var(--text-secondary);
+  background-color: var(--color-gray-pill);
+  border-color: var(--border-color);
+}
+
+/* Horizon */
+.horizonWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.horizonValue {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Model Architecture Selector Toggle */
+.modelSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+}
+
+@media (max-width: 1200px) {
+  .modelSection {
+    justify-self: start;
+    align-items: flex-start;
+  }
+  .labelCenter {
+    text-align: left;
+  }
+}
+
+.toggleContainer {
+  display: flex;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  padding: 2px;
+  border-radius: 6px;
+}
+
+.toggleButton {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.7rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-transform: uppercase;
+}
+
+.toggleButton:hover {
+  color: var(--text-primary);
+}
+
+.toggleActive {
+  background-color: var(--color-green);
+  color: #000000 !important;
+  box-shadow: var(--glow-green);
+}
+
+/* Confidence score panel */
+.confidenceSection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 220px;
+}
+
+@media (max-width: 1200px) {
+  .confidenceSection {
+    max-width: 100%;
+  }
+}
+
+.confidenceHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.confidencePercent {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+}
+
+.progressBarBg {
+  width: 100%;
+  height: 4px;
+  background-color: var(--border-color);
+  border-radius: 2px;
+  margin-top: 0.25rem;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background-color: var(--color-green);
+  box-shadow: var(--glow-green);
+  border-radius: 2px;
+  transition: width 0.4s ease-out;
+}
+
+.mlflowMetadata {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-top: 0.35rem;
+  font-family: var(--font-mono);
+}
+
+.mlflowMetadata strong {
+  color: var(--text-secondary);
+}
+
+/* Right Section containing Search and API status */
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  justify-self: end;
+}
+
+@media (max-width: 1200px) {
+  .rightSection {
+    justify-self: start;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .rightSection {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+.apiStats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+}
+
+.statusDotMuted {
+  width: 6px;
+  height: 6px;
+  background-color: var(--text-muted);
+  border-radius: 50%;
+  margin-right: 0.35rem;
+}
+
+.statusDotActive {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-green, #00e676);
+  border-radius: 50%;
+  margin-right: 0.35rem;
+  box-shadow: 0 0 6px var(--color-green, #00e676);
+  animation: pulseActive 2s infinite ease-in-out;
+}
+
+@keyframes pulseActive {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.statLabel {
+  color: var(--text-muted);
+  margin-right: 2px;
+}
+
+.statValue {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  width: 220px;
+  transition: all 0.2s ease;
+}
+
+.searchBar:focus-within {
+  border-color: var(--border-hover);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.searchIcon {
+  color: var(--text-muted);
+  margin-right: 0.5rem;
+}
+
+.searchInput {
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  width: 100%;
+}
+
+.searchInput::placeholder {
+  color: var(--text-muted);
+}

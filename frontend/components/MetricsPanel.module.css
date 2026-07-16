@@ -1,0 +1,216 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+}
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.15rem;
+  box-shadow: var(--glow-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--border-hover);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.cardHeaderBB {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+.cardTitle {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.cardValue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+/* Indicators Charts SVGs */
+.chartContainer {
+  height: 45px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.sparklineSvg,
+.histogramSvg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.rsiRefLine {
+  stroke: var(--border-color);
+  stroke-width: 1;
+  stroke-dasharray: 2 2;
+}
+
+.rsiPath {
+  fill: none;
+  stroke: var(--text-primary);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.macdZeroLine {
+  stroke: var(--border-color);
+  stroke-width: 1;
+}
+
+.macdBarPos {
+  fill: rgba(0, 230, 118, 0.7);
+  stroke: var(--color-green);
+  stroke-width: 0.5;
+}
+
+.macdBarNeg {
+  fill: var(--text-muted);
+}
+
+/* Footer details */
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.statusLabel {
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.statusBadge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.timeLabel,
+.volLabel {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.green {
+  color: var(--color-green);
+}
+
+.red {
+  color: var(--color-red);
+}
+
+.orangeText {
+  color: #ff9100;
+}
+
+/* Bollinger Bands Header specifications */
+.bbHeader {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.apiInfo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.55rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.apiLabel {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.dotMuted {
+  width: 4px;
+  height: 4px;
+  background-color: var(--text-muted);
+  border-radius: 50%;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.bbPosition {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Slider Track elements */
+.sliderContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0.75rem 0;
+}
+
+.sliderLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.sliderTrack {
+  position: relative;
+  height: 2px;
+  background-color: var(--border-color);
+  width: 100%;
+}
+
+.sliderTick {
+  position: absolute;
+  top: -2px;
+  width: 1px;
+  height: 6px;
+  background-color: var(--border-color);
+}
+
+.sliderCursor {
+  position: absolute;
+  top: -4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--text-primary);
+  border: 2px solid #2196f3;
+  transform: translateX(-50%);
+  transition: left 0.4s ease;
+  box-shadow: 0 0 6px rgba(33, 150, 243, 0.8);
+}

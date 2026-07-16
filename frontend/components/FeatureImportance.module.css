@@ -1,0 +1,149 @@
+.container {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--glow-card);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.titleArea {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 0.15rem;
+}
+
+.legend {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  letter-spacing: 0.05em;
+}
+
+.dotGreen {
+  width: 5px;
+  height: 5px;
+  background-color: var(--color-green);
+  border-radius: 50%;
+  box-shadow: var(--glow-green);
+}
+
+.dotRed {
+  width: 5px;
+  height: 5px;
+  background-color: var(--color-red);
+  border-radius: 50%;
+  box-shadow: var(--glow-red);
+}
+
+.headerIcon {
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .headerIcon {
+    display: none;
+  }
+}
+
+/* Feature rows list */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  justify-content: center;
+  flex: 1;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.featureName {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  width: 110px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.progressContainer {
+  flex: 1;
+  height: 8px;
+  background-color: var(--bg-primary);
+  border: 1.5px solid var(--border-color);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.barGreen {
+  background-color: var(--color-green);
+  box-shadow: var(--glow-green);
+}
+
+.barRed {
+  background-color: var(--color-red);
+  box-shadow: var(--glow-red);
+}
+
+.featureValue {
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  width: 45px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.greenText {
+  color: var(--color-green);
+}
+
+.redText {
+  color: var(--color-red);
+}

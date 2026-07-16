@@ -1,0 +1,179 @@
+.container {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--glow-card);
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.titleGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.headerIcon {
+  color: var(--text-muted);
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.itemCount {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Table Responsive wrapper */
+.tableResponsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.table td {
+  padding: 1rem;
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+/* Row states */
+.row {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+.row:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.activeRow {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.activeRow td {
+  color: var(--text-primary);
+}
+
+/* Side Bar indicator */
+.tickerCell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  color: var(--text-primary) !important;
+}
+
+.sideBar {
+  position: absolute;
+  left: 0;
+  top: 15%;
+  bottom: 15%;
+  width: 3px;
+  border-radius: 2px;
+}
+
+.sideBarUp {
+  background-color: var(--color-green);
+  box-shadow: var(--glow-green);
+}
+
+.sideBarDown {
+  background-color: var(--color-red);
+  box-shadow: var(--glow-red);
+}
+
+.sideBarNeutral {
+  background-color: var(--text-muted);
+}
+
+.symbol {
+  margin-left: 0.5rem;
+}
+
+.priceCell {
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.confidenceCell {
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.mlflowCell {
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.rightAlign {
+  text-align: right;
+}
+
+/* Pill badges */
+.badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.badgeStrongUp {
+  color: var(--color-green);
+  background-color: var(--color-green-bg);
+  border: 1px solid rgba(0, 230, 118, 0.2);
+}
+
+.badgeUp {
+  color: var(--color-green);
+  background-color: var(--color-green-bg);
+  border: 1px solid rgba(0, 230, 118, 0.1);
+}
+
+.badgeDown {
+  color: var(--color-red);
+  background-color: var(--color-red-bg);
+  border: 1px solid rgba(255, 23, 68, 0.2);
+}
+
+.badgeNeutral {
+  color: var(--text-secondary);
+  background-color: var(--color-gray-pill);
+  border: 1px solid var(--border-color);
+}

@@ -66,7 +66,8 @@ def run_tft_pipeline():
         loss=QuantileLoss(),
         reduce_on_plateau_patience=4
     )
-    print(f"🧠 TFT Network initialized with {tft.size() / 1e3:.1f}k active parameters.")
+    num_params = sum(p.numel() for p in tft.parameters())
+    print(f"🧠 TFT Network initialized with {num_params / 1e3:.1f}k active parameters.")
 
     # 5. Configure PyTorch Lightning Trainer Engine
     CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)

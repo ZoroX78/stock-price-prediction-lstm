@@ -14,7 +14,7 @@ def sample_market_data() -> pd.DataFrame:
     """Generate dummy stock price data for testing."""
     np.random.seed(42)
     n_days = 100
-    dates = pd.date_range(start="2020-01-01", periods=n_days, freq="D")
+    dates = pd.date_range(start="2020-01-01", periods=n_days, freq="B")
     
     # Generate geometric Brownian motion-like paths
     close = 100.0 * np.exp(np.cumsum(np.random.normal(0.0005, 0.01, n_days)))

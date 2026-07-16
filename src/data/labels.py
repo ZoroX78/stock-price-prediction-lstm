@@ -6,6 +6,7 @@ next 5 trading days.
 """
 
 from __future__ import annotations
+import numpy as np
 import pandas as pd
 
 
@@ -33,6 +34,6 @@ def compute_target_labels(df: pd.DataFrame, horizon: int = 5) -> pd.Series:
     labels = (pct_change > 0).astype(float)
     
     # Preserve NaNs for rows where future data is not available
-    labels[pct_change.isna()] = None
+    labels[pct_change.isna()] = np.nan
 
     return labels

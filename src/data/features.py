@@ -28,6 +28,7 @@ def compute_features(df: pd.DataFrame) -> pd.DataFrame:
         if col not in df.columns:
             raise ValueError(f"DataFrame must contain a '{col}' column.")
 
+    df = df.copy()  # Avoid mutating the caller's DataFrame
     features = pd.DataFrame(index=df.index)
 
     # 1. Base Prices & Volume (scaled/stationary)
